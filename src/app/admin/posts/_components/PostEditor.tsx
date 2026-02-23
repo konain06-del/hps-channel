@@ -18,6 +18,7 @@ import type { BlogPost } from "@/lib/blog/types";
 import { Prose } from "@/components/Prose";
 import { DeleteModal } from "./DeleteModal";
 import { Toast } from "./Toast";
+import { MarkdownEditor } from "./MarkdownEditor";
 
 interface PostEditorProps {
   post?: BlogPost;
@@ -50,6 +51,7 @@ export function PostEditor({ post }: PostEditorProps) {
   } | null>(null);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
   const lastSavedRef = useRef<string>("");
+  const [debouncedContent, setDebouncedContent] = useState(post?.content ?? "");
 
   const [form, setForm] = useState<FormState>({
     title: post?.title ?? "",
@@ -93,6 +95,14 @@ export function PostEditor({ post }: PostEditorProps) {
 
     return () => clearTimeout(timer);
   }, [form, postId]);
+
+  /* ---- Debounced preview content (300ms delay to avoid lag) ---- */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedContent(form.content);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [form.content]);
 
   const showToast = useCallback(
     (message: string, type: "success" | "error") => {
@@ -443,15 +453,11 @@ export function PostEditor({ post }: PostEditorProps) {
 
             {/* Content */}
             <Field label="Content (Markdown)" error={fieldError("content")} required>
-              <textarea
+              <MarkdownEditor
                 value={form.content}
-                onChange={(e) => updateField("content", e.target.value)}
+                onChange={(val) => updateField("content", val)}
                 placeholder="Write your post in Markdown..."
-                rows={20}
-                className={cn(
-                  fieldClass(fieldError("content")),
-                  "font-mono text-sm leading-relaxed"
-                )}
+                error={fieldError("content")}
               />
             </Field>
           </div>
@@ -499,7 +505,7 @@ export function PostEditor({ post }: PostEditorProps) {
               </div>
             )}
             <hr className="mb-6 border-[#E8F2FA]" />
-            <Prose content={form.content || "*Start writing to see the preview...*"} />
+            <Prose content={debouncedContent || "*Start writing to see the preview...*"} />
           </div>
         </div>
       </div>

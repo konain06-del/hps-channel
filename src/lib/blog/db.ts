@@ -102,7 +102,12 @@ async function readDB(): Promise<BlogDB> {
 }
 
 async function writeDB(db: BlogDB): Promise<void> {
-  if (IS_VERCEL && GH_TOKEN) {
+  if (IS_VERCEL) {
+    if (!GH_TOKEN) {
+      throw new Error(
+        "GITHUB_TOKEN is not set. Add it to your Vercel environment variables to enable blog editing."
+      );
+    }
     const { sha } = await ghRead();
     await ghWrite(db, sha);
     return;

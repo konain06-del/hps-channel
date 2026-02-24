@@ -113,9 +113,11 @@ const trustPoints = [
 
 export default function PaymentsPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleCardOnFile() {
     setIsLoading(true);
+    setError(null);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -125,11 +127,11 @@ export default function PaymentsPage() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        console.error("Checkout error:", data.error);
+        setError("Something went wrong. Please try again or contact us.");
         setIsLoading(false);
       }
-    } catch (err) {
-      console.error("Checkout error:", err);
+    } catch {
+      setError("Unable to connect. Please check your internet and try again.");
       setIsLoading(false);
     }
   }
@@ -198,6 +200,11 @@ export default function PaymentsPage() {
                 {isLoading ? "Redirecting to Stripe..." : "Get Your Card on File"}
                 {!isLoading && <ArrowRight className="h-4 w-4" />}
               </button>
+              {error && (
+                <p className="mt-3 text-sm font-medium text-red-600">
+                  {error}
+                </p>
+              )}
             </motion.div>
 
             <motion.p
@@ -455,6 +462,11 @@ export default function PaymentsPage() {
                 {isLoading ? "Redirecting to Stripe..." : "Get Your Card on File"}
                 {!isLoading && <ArrowRight className="h-4 w-4" />}
               </button>
+              {error && (
+                <p className="mt-3 text-sm font-medium text-red-600">
+                  {error}
+                </p>
+              )}
             </div>
 
             <p className="mt-4 flex items-center justify-center gap-1.5 text-sm text-slate-light">

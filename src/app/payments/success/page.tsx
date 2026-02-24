@@ -1,11 +1,35 @@
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { stripe } from "@/lib/stripe";
 
 export const metadata: Metadata = {
   title: "Card Saved Successfully | Hydra Pool Services",
 };
 
-export default function PaymentSuccessPage() {
+export default async function PaymentSuccessPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ session_id?: string }>;
+}) {
+  const { session_id } = await searchParams;
+
+  if (!session_id) {
+    redirect("/payments");
+  }
+
+  let verified = false;
+  try {
+    const session = await stripe.checkout.sessions.retrieve(session_id);
+    verified = session.status === "complete";
+  } catch {
+    // Invalid or expired session
+  }
+
+  if (!verified) {
+    redirect("/payments");
+  }
+
   return (
     <section className="flex min-h-[60vh] items-center justify-center bg-white px-5 py-24">
       <div className="mx-auto max-w-lg text-center">

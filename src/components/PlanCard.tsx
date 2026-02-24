@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import type { Plan } from "@/lib/data/plans";
 import { motion } from "framer-motion";
@@ -12,29 +11,7 @@ interface PlanCardProps {
 }
 
 export function PlanCard({ plan, index }: PlanCardProps) {
-  const { id, name, subtitle, price, priceLabel, featured, features, cta } = plan;
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function handleCheckout() {
-    setIsLoading(true);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ planId: id }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        console.error("Checkout error:", data.error);
-        setIsLoading(false);
-      }
-    } catch (err) {
-      console.error("Checkout error:", err);
-      setIsLoading(false);
-    }
-  }
+  const { name, subtitle, price, priceLabel, featured, features, cta } = plan;
 
   return (
     <motion.div
@@ -129,17 +106,15 @@ export function PlanCard({ plan, index }: PlanCardProps) {
       <div className="mt-auto pt-6">
         <button
           type="button"
-          disabled={isLoading}
-          onClick={handleCheckout}
+          onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
           className={cn(
             "w-full rounded-xl py-3 text-sm font-semibold transition-all duration-300 cursor-pointer",
             featured
               ? "bg-gradient-to-r from-hydra-500 to-hydra-600 text-white shadow-md shadow-hydra-500/25 hover:shadow-lg hover:shadow-hydra-500/30 hover:brightness-105"
-              : "border border-hydra-200 bg-hydra-50 text-hydra-700 hover:bg-hydra-100 hover:border-hydra-300",
-            isLoading && "opacity-60 cursor-wait"
+              : "border border-hydra-200 bg-hydra-50 text-hydra-700 hover:bg-hydra-100 hover:border-hydra-300"
           )}
         >
-          {isLoading ? "Redirecting..." : cta}
+          {cta}
         </button>
       </div>
     </motion.div>

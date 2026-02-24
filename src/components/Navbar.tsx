@@ -31,6 +31,7 @@ const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Plans", href: "/plans" },
+  { label: "Payments", href: "/payments" },
   { label: "Service Areas", href: "/areas" },
   { label: "Blog", href: "/blogs" },
   { label: "About", href: "/about" },

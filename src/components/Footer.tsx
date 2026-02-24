@@ -10,6 +10,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/plans" },
+  { label: "Payments", href: "/payments" },
   { label: "Service Areas", href: "/areas" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

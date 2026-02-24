@@ -1,0 +1,45 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Subscription Confirmed | Hydra Pool Services",
+};
+
+export default function CheckoutSuccessPage() {
+  return (
+    <section className="flex min-h-[60vh] items-center justify-center bg-white px-5 py-24">
+      <div className="mx-auto max-w-lg text-center">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-hydra-50">
+          <svg
+            className="h-8 w-8 text-hydra-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"
+            />
+          </svg>
+        </div>
+        <h1 className="text-3xl font-bold tracking-tight text-navy">
+          You&apos;re All Set!
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed text-slate-light">
+          Your subscription is confirmed. Our team will reach out within 24
+          hours to schedule your first service visit.
+        </p>
+        <div className="mt-8">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-xl bg-hydra-500 px-8 py-3 text-sm font-semibold text-white shadow-md shadow-hydra-500/25 transition-all hover:brightness-105"
+          >
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -11,7 +11,7 @@ export const siteConfig = {
     google: "https://g.page/hydrapoolservices",
     nextdoor: "https://nextdoor.com/hydrapoolservices",
   },
-  url: "https://hydrapoolservices.com",
+  url: "https://www.hydrapoolservices.com",
   description:
     "Hydra Pool Services provides premium weekly pool cleaning, water chemistry balancing, and equipment maintenance in Frisco, TX and surrounding DFW communities.",
 } as const;

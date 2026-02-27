@@ -6,8 +6,11 @@ export async function POST() {
   try {
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url;
 
+    const customer = await stripe.customers.create();
+
     const session = await stripe.checkout.sessions.create({
       mode: "setup",
+      customer: customer.id,
       payment_method_types: ["card"],
       billing_address_collection: "required",
       success_url: `${siteUrl}/payments/success?session_id={CHECKOUT_SESSION_ID}`,

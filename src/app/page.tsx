@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import { motion } from "framer-motion";
 import {
@@ -144,8 +145,51 @@ const areaMapPositions: Record<string, { cx: number; cy: number }> = {
 export default function HomePage() {
   const [hoveredArea, setHoveredArea] = useState<string | null>(null);
 
+  const faqJsonLd = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    }),
+    []
+  );
+
+  const howToJsonLd = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "How to Get Professional Pool Service in Frisco, TX",
+      description:
+        "Follow these 4 simple steps to get professional weekly pool maintenance from Hydra Pool Services in Frisco and North DFW.",
+      step: howItWorksSteps.map((step) => ({
+        "@type": "HowToStep",
+        position: step.number,
+        name: step.title,
+        text: step.description,
+        url: `${siteConfig.url}/#get-quote`,
+      })),
+    }),
+    []
+  );
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+
       {/* ============================================================ */}
       {/* 1. HERO SECTION                                               */}
       {/* ============================================================ */}
@@ -164,9 +208,11 @@ export default function HomePage() {
             className="flex items-center justify-center"
           >
             <div className="flex items-center gap-2.5 rounded-full border border-border-light bg-white px-5 py-2.5 shadow-sm">
-              <img
+              <Image
                 src="https://www.google.com/favicon.ico"
                 alt="Google"
+                width={20}
+                height={20}
                 className="h-5 w-5"
               />
               <span className="text-lg font-bold text-navy">4.9</span>
@@ -566,11 +612,12 @@ export default function HomePage() {
             {/* Before */}
             <motion.div variants={staggerItem} className="group relative overflow-hidden rounded-2xl border border-border-light">
               <div className="relative aspect-[4/3] overflow-hidden bg-hydra-50">
-                <img
+                <Image
                   src="/pool-before.jpg"
                   alt="Pool before cleaning — murky water and debris"
+                  width={800}
+                  height={600}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
                 />
                 <span className="absolute left-4 top-4 rounded-full bg-red-500/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg">
                   Before
@@ -581,11 +628,12 @@ export default function HomePage() {
             {/* After */}
             <motion.div variants={staggerItem} className="group relative overflow-hidden rounded-2xl border border-border-light">
               <div className="relative aspect-[4/3] overflow-hidden bg-hydra-50">
-                <img
+                <Image
                   src="/pool-after.jpg"
                   alt="Pool after cleaning — crystal clear water"
+                  width={800}
+                  height={600}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
                 />
                 <span className="absolute left-4 top-4 rounded-full bg-green-500/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg">
                   After

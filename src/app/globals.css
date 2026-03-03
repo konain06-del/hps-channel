@@ -20,7 +20,7 @@
   --color-border: #D7EAF6;
   --color-border-light: #E8F2FA;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 @layer base {

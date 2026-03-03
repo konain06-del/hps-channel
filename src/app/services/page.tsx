@@ -1,21 +1,20 @@
 "use client";
 
-// NOTE: Since this is a "use client" page, metadata must be exported from
-// a separate `metadata.ts` file or handled in the parent layout.tsx for SEO.
-
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   CheckCircle,
-  Waves,
-  FlaskConical,
-  Filter,
+  Home,
+  Building2,
   Wrench,
+  Sparkles,
+  GraduationCap,
+  FlaskConical,
   HelpCircle,
   Clock,
   Users,
-  Sparkles,
   DollarSign,
+  ArrowRight,
 } from "lucide-react";
 import type { LucideProps } from "lucide-react";
 import type { ComponentType } from "react";
@@ -32,10 +31,12 @@ import { GradientOrb } from "@/components/graphics/GradientOrb";
 /* ------------------------------------------------------------------ */
 
 const iconMap: Record<string, ComponentType<LucideProps>> = {
-  Waves,
-  FlaskConical,
-  Filter,
+  Home,
+  Building2,
   Wrench,
+  Sparkles,
+  GraduationCap,
+  FlaskConical,
 };
 
 /* ------------------------------------------------------------------ */
@@ -121,10 +122,10 @@ export default function ServicesPage() {
             <motion.p
               variants={fadeIn}
               className="mt-5 text-lg leading-relaxed text-slate-light sm:text-xl"
-          >
-            From weekly cleaning to equipment repairs, we keep your pool in peak
-            condition year-round.
-          </motion.p>
+            >
+              From weekly cleaning to equipment repairs, we keep your pool in
+              peak condition year-round.
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -149,7 +150,6 @@ export default function ServicesPage() {
               <div
                 className={cn(
                   "grid items-start gap-12 lg:grid-cols-2 lg:gap-20",
-                  /* Alternate text left / right on desktop */
                   !isEven && "lg:[direction:rtl]"
                 )}
               >
@@ -173,6 +173,11 @@ export default function ServicesPage() {
                       {service.title}
                     </h2>
                   </div>
+
+                  {/* Subtitle */}
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-hydra-600">
+                    {service.subtitle}
+                  </p>
 
                   {/* Description */}
                   <p className="mt-5 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
@@ -217,14 +222,15 @@ export default function ServicesPage() {
                     <Link
                       href={`/services/${service.id}`}
                       className={cn(
-                        "inline-flex items-center justify-center rounded-xl bg-hydra-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-hydra-500/25",
+                        "inline-flex items-center justify-center gap-2 rounded-xl bg-hydra-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-hydra-500/25",
                         "transition-all duration-200 ease-out",
                         "hover:-translate-y-0.5 hover:shadow-xl hover:shadow-hydra-500/30",
                         "active:scale-[0.98]",
                         "focus-visible:ring-2 focus-visible:ring-hydra-500 focus-visible:ring-offset-2"
                       )}
                     >
-                      Learn More
+                      Get Started
+                      <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </motion.div>
@@ -278,7 +284,6 @@ export default function ServicesPage() {
         aria-label="Maintenance add-ons"
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          {/* Section heading */}
           <motion.div
             variants={fadeIn}
             initial="hidden"
@@ -294,7 +299,6 @@ export default function ServicesPage() {
             </p>
           </motion.div>
 
-          {/* Add-ons grid */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -312,7 +316,6 @@ export default function ServicesPage() {
                   "hover:-translate-y-0.5 hover:border-hydra-200 hover:shadow-md"
                 )}
               >
-                {/* Icon + Name */}
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-hydra-50">
                     <Sparkles
@@ -325,12 +328,10 @@ export default function ServicesPage() {
                   </h3>
                 </div>
 
-                {/* Description */}
                 <p className="mt-3 text-sm leading-relaxed text-slate">
                   {addOn.description}
                 </p>
 
-                {/* Price pill */}
                 <div className="mt-4">
                   <span
                     className={cn(
@@ -389,7 +390,6 @@ export default function ServicesPage() {
             transition={{ delay: 0.24 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
-            {/* Primary — Get a Quote */}
             <Link
               href="/contact"
               className={cn(
@@ -403,7 +403,6 @@ export default function ServicesPage() {
               Get a Quote
             </Link>
 
-            {/* Secondary — View Plans */}
             <Link
               href="/plans"
               className={cn(

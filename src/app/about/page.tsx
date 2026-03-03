@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   CheckCircle,
@@ -208,11 +209,12 @@ export default function AboutPage() {
               className="flex items-center justify-center"
             >
               <div className="aspect-[4/3] w-full max-w-lg overflow-hidden rounded-2xl border border-border-light">
-                <img
+                <Image
                   src="/about-hero.jpeg"
                   alt="Hydra Pool Services — sparkling clean pool"
+                  width={640}
+                  height={480}
                   className="h-full w-full object-cover"
-                  loading="lazy"
                 />
               </div>
             </motion.div>
@@ -325,11 +327,12 @@ export default function AboutPage() {
             {photoItems.map((item) => (
               <motion.div key={item.caption} variants={cardFadeUp}>
                 <div className="aspect-video w-full overflow-hidden rounded-xl border border-border-light">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.caption}
+                    width={640}
+                    height={360}
                     className="h-full w-full object-cover"
-                    loading="lazy"
                   />
                 </div>
                 <p className="mt-3 text-center text-sm font-medium text-slate">

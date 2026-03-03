@@ -21,8 +21,30 @@ export const metadata: Metadata = {
 export default async function BlogsPage() {
   const posts = await getPublishedPosts();
 
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: `Blog | ${siteConfig.name}`,
+    description: `Pool care tips, maintenance guides, and industry insights from ${siteConfig.name}.`,
+    url: `${siteConfig.url}/blogs`,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: posts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${siteConfig.url}/blogs/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-hydra-50/60 to-white py-24 md:py-32">
         <AuroraBackground className="opacity-60" />

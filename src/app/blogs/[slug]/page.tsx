@@ -80,6 +80,10 @@ export default async function BlogPostPage({
       "@type": "Organization",
       name: siteConfig.name,
       url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/logo.png`,
+      },
     },
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,

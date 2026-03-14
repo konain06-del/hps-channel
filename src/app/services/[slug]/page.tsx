@@ -22,6 +22,7 @@ import type { ComponentType } from "react";
 
 import { services } from "@/lib/data/services";
 import type { ServiceSection } from "@/lib/data/services";
+import { serviceAreas } from "@/lib/data/areas";
 import { getPublishedPosts } from "@/lib/blog/db";
 import { siteConfig } from "@/lib/data/site";
 import { AuroraBackground } from "@/components/graphics/AuroraBackground";
@@ -404,6 +405,31 @@ export default async function ServiceDetailPage({
           </div>
         </section>
       )}
+
+      {/* ============================================================ */}
+      {/*  SERVICE AREAS CROSS-LINK                                     */}
+      {/* ============================================================ */}
+      <section className="bg-white py-16 md:py-20 border-t border-border-light">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">
+            {service.title} Near You
+          </h2>
+          <p className="mt-3 text-base text-slate">
+            We provide {service.title.toLowerCase()} across North DFW. Find pool service in your city:
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {serviceAreas.map((area) => (
+              <Link
+                key={area.id}
+                href={`/areas/${area.id}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border-light px-4 py-2 text-sm font-medium text-navy transition-all hover:border-hydra-300 hover:bg-hydra-50 hover:text-hydra-600"
+              >
+                {area.name}, TX
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ============================================================ */}
       {/*  CTA                                                          */}

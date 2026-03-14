@@ -205,34 +205,38 @@ export default function AreasPage() {
               viewport={{ once: true, amount: 0.1 }}
             >
               {serviceAreas.map((area) => (
-                <motion.div
-                  key={area.id}
-                  variants={staggerItem}
-                  className={cn(
-                    "group relative overflow-hidden rounded-2xl border border-border-light bg-white p-5",
-                    "shadow-sm transition-shadow duration-200 hover:shadow-md hover:border-hydra-300",
-                  )}
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-hydra-50 text-hydra-600">
-                      <MapPin className="h-4 w-4" />
-                    </span>
+                <Link key={area.id} href={`/areas/${area.id}`}>
+                  <motion.div
+                    variants={staggerItem}
+                    className={cn(
+                      "group relative overflow-hidden rounded-2xl border border-border-light bg-white p-5",
+                      "shadow-sm transition-shadow duration-200 hover:shadow-md hover:border-hydra-300",
+                    )}
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-hydra-50 text-hydra-600">
+                        <MapPin className="h-4 w-4" />
+                      </span>
 
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-sm font-semibold text-navy">
-                        {area.name}
-                      </h3>
-                      <p className="mt-0.5 text-xs text-slate-light">
-                        {area.state}
-                      </p>
-                      {area.description && (
-                        <p className="mt-2 text-xs leading-relaxed text-slate-light">
-                          {area.description}
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-sm font-semibold text-navy group-hover:text-hydra-600 transition-colors">
+                          {area.name}
+                        </h3>
+                        <p className="mt-0.5 text-xs text-slate-light">
+                          {area.state}
                         </p>
-                      )}
+                        {area.description && (
+                          <p className="mt-2 text-xs leading-relaxed text-slate-light">
+                            {area.description}
+                          </p>
+                        )}
+                        <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-hydra-600">
+                          View details <ChevronRight className="h-3 w-3" />
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))}
             </motion.div>
 

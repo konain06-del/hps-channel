@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Pool Services",
+  title: "Pool Services in Frisco, TX & North DFW",
   description:
-    "Professional pool services in Frisco, TX and North DFW. Residential maintenance, commercial pool care, repairs, bead blasting, pool school, and chemical-only service. Get $100 off your first month.",
+    "Pool cleaning, maintenance, repairs, bead blasting & more in Frisco, TX. Residential & commercial pool care from $120/mo. All chemicals included. Free first 2 weeks. Call (214) 233-6803.",
   alternates: {
     canonical: `${siteConfig.url}/services`,
   },

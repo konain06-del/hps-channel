@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/data/site";
 import { services } from "@/lib/data/services";
+import { serviceAreas } from "@/lib/data/areas";
 import { getPublishedPosts } from "@/lib/blog/db";
 
 export const dynamic = "force-dynamic";
@@ -68,6 +69,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  /* ── City / area pages ── */
+  const areaPages: MetadataRoute.Sitemap = serviceAreas.map((area) => ({
+    url: `${baseUrl}/areas/${area.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   /* ── Blog posts ── */
   let blogPages: MetadataRoute.Sitemap = [];
   try {
@@ -82,5 +91,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Blog DB may not be available during build
   }
 
-  return [...staticPages, ...servicePages, ...blogPages];
+  return [...staticPages, ...servicePages, ...areaPages, ...blogPages];
 }

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Pool Service Plans & Pricing",
+  title: "Pool Service Plans & Pricing — From $120/mo",
   description:
-    "Affordable pool service plans starting in Frisco, TX. Weekly cleaning, chemical balancing, filter maintenance, and equipment repairs. All chemicals included. Get $100 off your first month.",
+    "Pool service plans in Frisco, TX: Bi-weekly $120/mo, Weekly $179/mo, Premium Care $229/mo. All chemicals included, no contracts. Free first 2 weeks for new customers. Call (214) 233-6803.",
   alternates: {
     canonical: `${siteConfig.url}/plans`,
   },

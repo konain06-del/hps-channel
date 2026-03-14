@@ -102,6 +102,11 @@ export function DetailsStep({ onSubmit, submitting }: DetailsStepProps) {
           )}
         </div>
 
+        <p className="text-[11px] leading-snug text-slate-light/80 text-center">
+          We will never send you any promotional content or marketing messages
+          via email or text. Your info is only used to deliver your quote.
+        </p>
+
         <button
           type="submit"
           disabled={submitting}

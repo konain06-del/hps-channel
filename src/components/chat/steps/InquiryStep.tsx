@@ -103,6 +103,11 @@ export function InquiryStep({ serviceType, onSubmit }: InquiryStepProps) {
           {errors.message && <p className="mt-0.5 text-xs text-red-500">{errors.message}</p>}
         </div>
 
+        <p className="text-[11px] leading-snug text-slate-light/80 text-center">
+          We will never send you any promotional content or marketing messages
+          via email or text. Your info is only used to respond to your inquiry.
+        </p>
+
         <button
           type="submit"
           className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-hydra-600 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-hydra-700"

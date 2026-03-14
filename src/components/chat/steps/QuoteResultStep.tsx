@@ -39,7 +39,7 @@ export function QuoteResultStep({
             <span className="text-sm font-medium text-slate-light">/mo</span>
           </p>
           <div className="mt-2 flex justify-center gap-4 text-xs text-slate-light">
-            <span className="capitalize">{schedule}</span>
+            <span>{schedule === "premium" ? "Premium Care" : schedule === "biweekly" ? "Bi-weekly" : "Weekly"}</span>
             <span className="text-hydra-300">&#183;</span>
             <span>{POOL_LABELS[poolSize]}</span>
           </div>

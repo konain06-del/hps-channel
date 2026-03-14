@@ -10,14 +10,19 @@ interface ScheduleStepProps {
 
 const OPTIONS: { value: Schedule; label: string; description: string }[] = [
   {
+    value: "biweekly",
+    label: "Bi-weekly",
+    description: "Great for moderate-use pools",
+  },
+  {
     value: "weekly",
     label: "Weekly",
     description: "Best for year-round sparkling results",
   },
   {
-    value: "biweekly",
-    label: "Bi-weekly",
-    description: "Great for moderate-use pools",
+    value: "premium",
+    label: "Premium Care",
+    description: "Weekly service + equipment support & priority scheduling",
   },
 ];
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle, Droplets, Calendar, ClipboardCheck, Activity, Bell } from "lucide-react";
@@ -64,6 +65,14 @@ const trustItems = [
 /* ------------------------------------------------------------------ */
 
 export function Hero() {
+  // Auto-open the quote bot shortly after the hero loads
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("open-chat"));
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       className="relative flex min-h-screen items-center overflow-hidden bg-white"

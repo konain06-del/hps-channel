@@ -15,6 +15,11 @@ const PRICES: Record<Schedule, Record<PoolSize, number>> = {
     "20k-30k": 189,
     "30k+": 199,
   },
+  premium: {
+    "10k-20k": 229,
+    "20k-30k": 249,
+    "30k+": 269,
+  },
 };
 
 export function getMonthlyPrice(schedule: Schedule, poolSize: PoolSize): number {

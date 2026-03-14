@@ -12,7 +12,7 @@ import nodemailer from "nodemailer";
 const quoteSchema = z.object({
   photo: z.string().optional(),
   poolSize: z.enum(["10k-20k", "20k-30k", "30k+"]),
-  schedule: z.enum(["weekly", "biweekly"]),
+  schedule: z.enum(["weekly", "biweekly", "premium"]),
   monthlyPrice: z.number().positive(),
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email"),
@@ -88,6 +88,12 @@ const POOL_LABELS: Record<string, string> = {
   "30k+": "30,000+ gal",
 };
 
+function scheduleLabel(s: string): string {
+  if (s === "premium") return "Premium Care";
+  if (s === "biweekly") return "Bi-weekly";
+  return "Weekly";
+}
+
 async function sendCustomerConfirmation(record: QuoteRecord) {
   const user = process.env.GMAIL_USER;
   const pass = process.env.GMAIL_APP_PASSWORD;
@@ -117,7 +123,7 @@ async function sendCustomerConfirmation(record: QuoteRecord) {
             $${record.monthlyPrice}<span style="font-size: 14px; font-weight: 500; color: #64748b;">/mo</span>
           </p>
           <p style="margin: 8px 0 0; font-size: 12px; color: #64748b;">
-            ${record.schedule.charAt(0).toUpperCase() + record.schedule.slice(1)} &middot; ${POOL_LABELS[record.poolSize] || record.poolSize}
+            ${scheduleLabel(record.schedule)} &middot; ${POOL_LABELS[record.poolSize] || record.poolSize}
           </p>
         </div>
 
@@ -128,7 +134,7 @@ async function sendCustomerConfirmation(record: QuoteRecord) {
           </tr>
           <tr>
             <td style="padding: 8px 0; color: #64748b; border-bottom: 1px solid #f1f5f9;">Service</td>
-            <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #f1f5f9;">${record.schedule.charAt(0).toUpperCase() + record.schedule.slice(1)} Pool Cleaning</td>
+            <td style="padding: 8px 0; text-align: right; border-bottom: 1px solid #f1f5f9;">${scheduleLabel(record.schedule)} Pool Cleaning</td>
           </tr>
           <tr>
             <td style="padding: 8px 0; color: #64748b; border-bottom: 1px solid #f1f5f9;">Pool Size</td>

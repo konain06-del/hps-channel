@@ -16,7 +16,7 @@ export type Step =
   | "inquiryResult";
 
 export type PoolSize = "10k-20k" | "20k-30k" | "30k+";
-export type Schedule = "weekly" | "biweekly";
+export type Schedule = "weekly" | "biweekly" | "premium";
 
 export interface ContactDetails {
   name: string;

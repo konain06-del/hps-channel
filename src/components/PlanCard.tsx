@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import type { Plan } from "@/lib/data/plans";
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
+import { Check, X, Loader2 } from "lucide-react";
 
 interface PlanCardProps {
   plan: Plan;
@@ -12,6 +13,26 @@ interface PlanCardProps {
 
 export function PlanCard({ plan, index }: PlanCardProps) {
   const { name, subtitle, price, priceLabel, featured, features, cta } = plan;
+  const [loading, setLoading] = useState(false);
+
+  async function handleCheckout() {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ planId: plan.id }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || "Failed to start checkout");
+      }
+      window.location.href = data.url;
+    } catch (err) {
+      console.error("Checkout error:", err);
+      setLoading(false);
+    }
+  }
 
   return (
     <motion.div
@@ -106,15 +127,23 @@ export function PlanCard({ plan, index }: PlanCardProps) {
       <div className="mt-auto pt-6">
         <button
           type="button"
-          onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
+          disabled={loading}
+          onClick={handleCheckout}
           className={cn(
-            "w-full rounded-xl py-3 text-sm font-semibold transition-all duration-300 cursor-pointer",
+            "w-full rounded-xl py-3 text-sm font-semibold transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed",
             featured
               ? "bg-gradient-to-r from-hydra-500 to-hydra-600 text-white shadow-md shadow-hydra-500/25 hover:shadow-lg hover:shadow-hydra-500/30 hover:brightness-105"
               : "border border-hydra-200 bg-hydra-50 text-hydra-700 hover:bg-hydra-100 hover:border-hydra-300"
           )}
         >
-          {cta}
+          {loading ? (
+            <span className="inline-flex items-center gap-2">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Redirecting…
+            </span>
+          ) : (
+            cta
+          )}
         </button>
       </div>
     </motion.div>

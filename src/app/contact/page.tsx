@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -9,35 +6,7 @@ import { AuroraBackground } from "@/components/graphics/AuroraBackground";
 import { NoiseOverlay } from "@/components/graphics/NoiseOverlay";
 import { GradientOrb } from "@/components/graphics/GradientOrb";
 import { GetQuoteForm } from "@/components/GetQuoteForm";
-
-/* ------------------------------------------------------------------ */
-/*  Animation variants                                                 */
-/* ------------------------------------------------------------------ */
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
-  },
-};
-
-const cardReveal = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
-  },
-};
+import { FadeIn } from "@/components/FadeIn";
 
 /* ------------------------------------------------------------------ */
 /*  Contact info cards data                                            */
@@ -94,26 +63,19 @@ export default function ContactPage() {
         <GradientOrb className="right-[-6%] bottom-[10%]" size="md" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.h1
-              variants={fadeIn}
-              className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl lg:text-[3.4rem]"
-            >
-              Get in <span className="text-hydra-500">Touch</span>
-            </motion.h1>
+          <div className="mx-auto max-w-3xl text-center">
+            <FadeIn>
+              <h1 className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl lg:text-[3.4rem]">
+                Get in <span className="text-hydra-500">Touch</span>
+              </h1>
+            </FadeIn>
 
-            <motion.p
-              variants={fadeIn}
-              className="mt-5 text-lg leading-relaxed text-slate-light sm:text-xl"
-            >
-              Request a quote, ask a question, or schedule your first service.
-            </motion.p>
-          </motion.div>
+            <FadeIn delay={100}>
+              <p className="mt-5 text-lg leading-relaxed text-slate-light sm:text-xl">
+                Request a quote, ask a question, or schedule your first service.
+              </p>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -126,31 +88,20 @@ export default function ContactPage() {
             {/* ------------------------------------------------------ */}
             {/*  Left: Contact Form                                     */}
             {/* ------------------------------------------------------ */}
-            <motion.div
-              variants={cardReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-            >
+            <FadeIn>
               <GetQuoteForm />
-            </motion.div>
+            </FadeIn>
 
             {/* ------------------------------------------------------ */}
             {/*  Right: Contact Info Cards                              */}
             {/* ------------------------------------------------------ */}
-            <motion.aside
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className="flex flex-col gap-4"
-            >
-              {contactCards.map((card) => {
+            <aside className="flex flex-col gap-4">
+              {contactCards.map((card, i) => {
                 const Icon = card.icon;
                 const content = (
-                  <motion.div
+                  <FadeIn
                     key={card.label}
-                    variants={cardReveal}
+                    delay={i * 80}
                     className={cn(
                       "rounded-xl border border-border-light bg-surface p-5",
                       "transition-shadow duration-200 hover:shadow-md"
@@ -177,7 +128,7 @@ export default function ContactPage() {
                         )}
                       </div>
                     </div>
-                  </motion.div>
+                  </FadeIn>
                 );
 
                 if (card.href) {
@@ -194,7 +145,7 @@ export default function ContactPage() {
 
                 return <div key={card.label}>{content}</div>;
               })}
-            </motion.aside>
+            </aside>
           </div>
         </div>
       </section>

@@ -1,28 +1,18 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import type { Plan } from "@/lib/data/plans";
-import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import { OpenChatButton } from "@/components/OpenChatButton";
 
 interface PlanCardProps {
   plan: Plan;
   index: number;
 }
 
-export function PlanCard({ plan, index }: PlanCardProps) {
+export function PlanCard({ plan }: PlanCardProps) {
   const { name, subtitle, price, priceLabel, featured, features, cta } = plan;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-      }}
+    <div
       className={cn(
         "group relative flex flex-col rounded-2xl bg-white p-6 transition-all duration-300",
         "hover:-translate-y-1 hover:shadow-lg",
@@ -104,9 +94,7 @@ export function PlanCard({ plan, index }: PlanCardProps) {
 
       {/* CTA button */}
       <div className="mt-auto pt-6">
-        <button
-          type="button"
-          onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
+        <OpenChatButton
           className={cn(
             "w-full rounded-xl py-3 text-sm font-semibold transition-all duration-300 cursor-pointer",
             featured
@@ -115,8 +103,8 @@ export function PlanCard({ plan, index }: PlanCardProps) {
           )}
         >
           {cta}
-        </button>
+        </OpenChatButton>
       </div>
-    </motion.div>
+    </div>
   );
 }

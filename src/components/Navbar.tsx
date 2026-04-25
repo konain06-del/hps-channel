@@ -168,7 +168,7 @@ export function Navbar() {
         >
           {/* Dark logo — visible when scrolled (white bg) */}
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt={siteConfig.name}
             width={280}
             height={72}
@@ -180,7 +180,7 @@ export function Navbar() {
           />
           {/* Light logo — visible at top (over dark hero) */}
           <Image
-            src="/logo-light.png"
+            src="/logo-light.webp"
             alt=""
             width={280}
             height={72}

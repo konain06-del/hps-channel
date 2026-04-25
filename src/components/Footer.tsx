@@ -1,10 +1,9 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, MapPin, Phone, Mail, ExternalLink, Home } from "lucide-react";
 import { siteConfig } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
+import { OpenChatButton } from "@/components/OpenChatButton";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -39,7 +38,7 @@ export function Footer({ className }: { className?: string }) {
           <div className="space-y-3">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt={siteConfig.name}
                 width={160}
                 height={160}
@@ -121,12 +120,9 @@ export function Footer({ className }: { className?: string }) {
               Hours
             </h4>
             <p className="text-sm text-slate-light">{siteConfig.hours}</p>
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-hydra-500 px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-hydra-600 hover:-translate-y-0.5 shadow-sm shadow-hydra-500/20"
-            >
+            <OpenChatButton className="mt-4 inline-flex items-center gap-2 rounded-lg bg-hydra-500 px-4 py-2 text-xs font-semibold text-white transition-all duration-200 hover:bg-hydra-600 hover:-translate-y-0.5 shadow-sm shadow-hydra-500/20">
               Get a Free Quote
-            </button>
+            </OpenChatButton>
           </div>
         </div>
       </div>

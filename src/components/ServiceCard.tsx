@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import type { LucideProps } from "lucide-react";
 import type { ComponentType } from "react";
@@ -21,7 +18,6 @@ export function ServiceCard({
   description,
   icon,
   bullets,
-  index,
   href,
 }: ServiceCardProps) {
   /* ── Dynamically resolve the lucide icon by name ── */
@@ -30,15 +26,7 @@ export function ServiceCard({
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: [0.25, 0.1, 0.25, 1] as const,
-      }}
+    <div
       className={cn(
         "group relative flex flex-col rounded-2xl border border-border-light bg-white p-6",
         "transition-all duration-300",
@@ -109,6 +97,6 @@ export function ServiceCard({
           </Link>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

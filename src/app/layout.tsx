@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { ChatLauncher } from "@/components/chat/ChatLauncher";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
+import { GTMPageView } from "@/components/GTMPageView";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
@@ -229,6 +230,7 @@ export default function RootLayout({
         />
         <PostHogProvider>
           <PostHogPageView />
+          <GTMPageView />
           <Navbar />
           <main>{children}</main>
           <Footer />

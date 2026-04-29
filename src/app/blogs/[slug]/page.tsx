@@ -6,7 +6,12 @@ import { getPostBySlug, getPublishedPosts } from "@/lib/blog/db";
 import { siteConfig } from "@/lib/data/site";
 import { Prose } from "@/components/Prose";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 /* ------------------------------------------------------------------ */
 /*  Metadata                                                           */

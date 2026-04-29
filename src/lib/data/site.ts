@@ -12,6 +12,7 @@ export const siteConfig = {
     nextdoor: "https://nextdoor.com/hydrapoolservices",
   },
   url: "https://www.hydrapoolservices.com",
+  contentUpdatedAt: "2026-04-23",
   description:
     "Hydra Pool Services provides premium weekly pool cleaning, water chemistry balancing, and equipment maintenance in Frisco, TX and surrounding DFW communities.",
 } as const;

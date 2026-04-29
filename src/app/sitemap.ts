@@ -42,7 +42,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/plans`, lastModified: siteDate, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/areas`, lastModified: siteDate, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/blogs`, lastModified: latestPostDate, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/payments`, lastModified: siteDate, changeFrequency: "monthly", priority: 0.5 },
+    // /payments is intentionally noindex (see src/app/payments/layout.tsx) —
+    // listing it here tells Google to crawl a page it isn't allowed to index,
+    // which GSC flags as a "noindex" coverage error.
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({

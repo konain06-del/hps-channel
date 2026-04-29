@@ -107,6 +107,7 @@ const legacyBlogRedirects: Array<{
 
   // Old Squarespace store — no current equivalent
   { source: "/store/:path*", destination: "/", permanent: true },
+  { source: "/cart", destination: "/", permanent: true },
 ];
 
 const nextConfig: NextConfig = {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { trackLead } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -104,6 +105,7 @@ export function GetQuoteForm({ className }: GetQuoteFormProps) {
         body: JSON.stringify(form),
       });
       if (res.ok) {
+        trackLead({ source: "home_quote_form" });
         setSubmitted(true);
       } else {
         setErrors({ name: "Something went wrong. Please try again." });

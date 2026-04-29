@@ -4,6 +4,7 @@ import { Facebook, Instagram, MapPin, Phone, Mail, ExternalLink, Home } from "lu
 import { siteConfig } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
 import { OpenChatButton } from "@/components/OpenChatButton";
+import { TrackedContactLink } from "@/components/TrackedContactLink";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -90,22 +91,26 @@ export function Footer({ className }: { className?: string }) {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <a
+                <TrackedContactLink
+                  kind="phone"
+                  surface="footer"
                   href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
                   className="flex items-center gap-2 text-sm text-slate-light transition-colors duration-200 hover:text-hydra-600"
                 >
                   <Phone className="h-3.5 w-3.5 text-hydra-500" />
                   {siteConfig.phone}
-                </a>
+                </TrackedContactLink>
               </li>
               <li>
-                <a
+                <TrackedContactLink
+                  kind="email"
+                  surface="footer"
                   href={`mailto:${siteConfig.email}`}
                   className="flex items-center gap-2 text-sm text-slate-light transition-colors duration-200 hover:text-hydra-600"
                 >
                   <Mail className="h-3.5 w-3.5 text-hydra-500" />
                   {siteConfig.email}
-                </a>
+                </TrackedContactLink>
               </li>
               <li className="flex items-center gap-2 text-sm text-slate-light">
                 <MapPin className="h-3.5 w-3.5 shrink-0 text-hydra-500" />

@@ -7,6 +7,7 @@ import { NoiseOverlay } from "@/components/graphics/NoiseOverlay";
 import { GradientOrb } from "@/components/graphics/GradientOrb";
 import { GetQuoteForm } from "@/components/GetQuoteForm";
 import { FadeIn } from "@/components/FadeIn";
+import { TrackedContactLink } from "@/components/TrackedContactLink";
 
 /* ------------------------------------------------------------------ */
 /*  Contact info cards data                                            */
@@ -18,6 +19,7 @@ const contactCards = [
     label: "Phone",
     value: siteConfig.phone,
     href: `tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`,
+    kind: "phone" as const,
     note: "Call us anytime",
   },
   {
@@ -25,6 +27,7 @@ const contactCards = [
     label: "Email",
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
+    kind: "email" as const,
     note: "We respond within 24 hours",
   },
   {
@@ -32,6 +35,7 @@ const contactCards = [
     label: "Location",
     value: siteConfig.address,
     href: undefined,
+    kind: undefined,
     note: "Serving Frisco & nearby communities",
   },
   {
@@ -39,6 +43,7 @@ const contactCards = [
     label: "Hours",
     value: siteConfig.hours,
     href: undefined,
+    kind: undefined,
     note: undefined,
   },
 ] as const;
@@ -131,15 +136,17 @@ export default function ContactPage() {
                   </FadeIn>
                 );
 
-                if (card.href) {
+                if (card.href && card.kind) {
                   return (
-                    <a
+                    <TrackedContactLink
                       key={card.label}
+                      kind={card.kind}
+                      surface="contact_page"
                       href={card.href}
                       className="block outline-none focus-visible:ring-2 focus-visible:ring-hydra-500 focus-visible:ring-offset-2 rounded-xl"
                     >
                       {content}
-                    </a>
+                    </TrackedContactLink>
                   );
                 }
 

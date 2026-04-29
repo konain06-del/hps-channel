@@ -30,6 +30,7 @@ import { RippleLines } from "@/components/graphics/RippleLines";
 import { GradientOrb } from "@/components/graphics/GradientOrb";
 import { GetQuoteForm } from "@/components/GetQuoteForm";
 import { AnimatedServiceMap } from "@/components/AnimatedServiceMap";
+import { TrackedContactLink } from "@/components/TrackedContactLink";
 
 /* ── Data imports ── */
 import { services } from "@/lib/data/services";
@@ -782,7 +783,9 @@ export default function HomePage() {
               </button>
 
               {/* Secondary — Call Now */}
-              <a
+              <TrackedContactLink
+                kind="phone"
+                surface="home_hero"
                 href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
                 className={cn(
                   "inline-flex items-center justify-center gap-2 rounded-xl border border-hydra-500 bg-white px-8 py-4 text-sm font-semibold text-hydra-600 shadow-sm",
@@ -794,7 +797,7 @@ export default function HomePage() {
               >
                 <Phone className="h-4 w-4" />
                 Call Now
-              </a>
+              </TrackedContactLink>
             </motion.div>
 
             {/* Phone number display */}

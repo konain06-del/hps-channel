@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/data/site";
+import { trackPhoneClick } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -215,6 +216,7 @@ export function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
+            onClick={() => trackPhoneClick("navbar")}
             className={cn(
               "flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200",
               isScrolled
@@ -325,6 +327,7 @@ export function Navbar() {
               {/* ---- mobile phone link ---- */}
               <motion.a
                 href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`}
+                onClick={() => trackPhoneClick("navbar_mobile")}
                 initial={{ x: -16, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.25, duration: 0.3 }}

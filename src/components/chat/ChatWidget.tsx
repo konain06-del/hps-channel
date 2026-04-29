@@ -16,6 +16,7 @@ import {
 import { getMonthlyPrice } from "./pricing";
 import { submitQuote } from "@/app/actions/quote";
 import { submitInquiry } from "@/app/actions/inquiry";
+import { trackLead } from "@/lib/analytics";
 
 import { ChatMessage } from "./ChatMessage";
 import { ServiceTypeStep } from "./steps/ServiceTypeStep";
@@ -188,6 +189,10 @@ export function ChatWidget({ onClose }: ChatWidgetProps) {
       });
 
       if (result.success) {
+        trackLead({
+          source: "chat_pool_quote",
+          value: price * 12,
+        });
         dispatch({ type: "SET_QUOTE_ID", quoteId: result.quoteId });
       } else {
         dispatch({ type: "SET_ERROR", error: result.error });
@@ -212,6 +217,12 @@ export function ChatWidget({ onClose }: ChatWidgetProps) {
       });
 
       if (result.success) {
+        trackLead({
+          source:
+            state.serviceType === "repair"
+              ? "chat_repair_inquiry"
+              : "chat_question_inquiry",
+        });
         dispatch({ type: "SET_STEP", step: "inquiryResult" });
       } else {
         dispatch({ type: "SET_STEP", step: "inquiry" });

@@ -14,6 +14,9 @@ export interface BlogPost {
   seoDescription: string;
   tags: string[];
   readingTime: number;
+  // Old slugs this post used to live at. Populated automatically when the
+  // slug changes so /blogs/<old> can 301 to the current URL instead of 404ing.
+  previousSlugs?: string[];
 }
 
 export interface BlogDB {

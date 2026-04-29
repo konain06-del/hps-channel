@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
-import { getPostBySlug, getPublishedPosts } from "@/lib/blog/db";
+import {
+  getPostByPreviousSlug,
+  getPostBySlug,
+  getPublishedPosts,
+} from "@/lib/blog/db";
 import { siteConfig } from "@/lib/data/site";
 import { Prose } from "@/components/Prose";
 
@@ -68,7 +72,11 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
-  if (!post) notFound();
+  if (!post) {
+    const renamed = await getPostByPreviousSlug(slug);
+    if (renamed) permanentRedirect(`/blogs/${renamed.slug}`);
+    notFound();
+  }
 
   const allPosts = await getPublishedPosts();
   const related = allPosts

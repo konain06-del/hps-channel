@@ -158,6 +158,17 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   return db.posts.find((p) => p.slug === slug && p.published) ?? null;
 }
 
+export async function getPostByPreviousSlug(
+  slug: string
+): Promise<BlogPost | null> {
+  const db = await readDB();
+  return (
+    db.posts.find(
+      (p) => p.published && p.previousSlugs?.includes(slug)
+    ) ?? null
+  );
+}
+
 export async function isSlugUnique(
   slug: string,
   excludeId?: string
@@ -183,9 +194,20 @@ export async function updatePost(
     const db = await readDB();
     const index = db.posts.findIndex((p) => p.id === id);
     if (index === -1) return null;
+    const existing = db.posts[index];
+
+    const slugChanged =
+      typeof data.slug === "string" && data.slug !== existing.slug;
+    const previousSlugs = slugChanged
+      ? Array.from(
+          new Set([...(existing.previousSlugs ?? []), existing.slug])
+        ).filter((s) => s !== data.slug)
+      : existing.previousSlugs;
+
     db.posts[index] = {
-      ...db.posts[index],
+      ...existing,
       ...data,
+      previousSlugs,
       updatedAt: new Date().toISOString(),
     };
     await writeDB(db);

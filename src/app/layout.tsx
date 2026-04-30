@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { ChatLauncher } from "@/components/chat/ChatLauncher";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
+import { RouteChangeTracker } from "@/components/RouteChangeTracker";
 import Script from "next/script";
 import "./globals.css";
 
@@ -239,6 +240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         <PostHogProvider>
           <PostHogPageView />
+          <RouteChangeTracker />
           <Navbar />
           <main>{children}</main>
           <Footer />

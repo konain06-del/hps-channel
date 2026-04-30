@@ -1,14 +1,22 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, Suspense } from "react";
+import { useEffect, useRef, Suspense } from "react";
 
 function GTMPageViewTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const isFirstLoad = useRef(true);
 
   useEffect(() => {
     if (!pathname) return;
+
+    // Skip the first render — the "Initialization - All Pages" trigger
+    // in GTM already handles the initial page load
+    if (isFirstLoad.current) {
+      isFirstLoad.current = false;
+      return;
+    }
 
     // Delay so Next.js has time to update document.title after navigation
     const timeout = setTimeout(() => {

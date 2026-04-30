@@ -8,7 +8,7 @@ import { ChatLauncher } from "@/components/chat/ChatLauncher";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { PostHogPageView } from "@/components/PostHogPageView";
 import { GTMPageView } from "@/components/GTMPageView";
-import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -207,8 +207,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
-      <GoogleTagManager gtmId="GTM-NMB4HG4Z" />
       <head>
+        <Script
+          id="gtm-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NMB4HG4Z');`,
+          }}
+        />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />

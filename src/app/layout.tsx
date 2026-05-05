@@ -20,11 +20,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Pool Service Frisco TX | Weekly Cleaning from $120/mo | Hydra Pool Services",
+    default: "Pool Service Frisco TX | Weekly Cleaning from $129/mo | Hydra Pool Services",
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Professional pool cleaning and maintenance in Frisco, TX starting at $120/mo. Weekly service, all chemicals included, no contracts. Serving Frisco, Plano, McKinney & North DFW. Free first 2 weeks. Call (214) 233-6803.",
+    "Professional pool cleaning and maintenance in Frisco, TX starting at $129/mo. Weekly service, all chemicals included, no contracts. Serving Frisco, Plano, McKinney & North DFW. Free first 2 weeks. Call (214) 233-6803.",
   keywords: [
     "pool cleaning Frisco TX",
     "pool service Frisco",

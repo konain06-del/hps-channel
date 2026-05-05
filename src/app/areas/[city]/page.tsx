@@ -107,11 +107,11 @@ export default async function CityPage({
         {
           "@type": "Offer",
           name: "Bi-weekly Pool Service",
-          price: "120",
+          price: "129",
           priceCurrency: "USD",
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: "120",
+            price: "129",
             priceCurrency: "USD",
             unitText: "MONTH",
           },
@@ -272,7 +272,7 @@ export default async function CityPage({
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {[
-              { name: "Bi-weekly", price: 120, desc: "Essential bi-weekly cleaning" },
+              { name: "Bi-weekly", price: 129, desc: "Essential bi-weekly cleaning" },
               { name: "Weekly", price: 179, desc: "Complete weekly service", featured: true },
               { name: "Premium Care", price: 229, desc: "Weekly + equipment support" },
             ].map((plan) => (

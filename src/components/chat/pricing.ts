@@ -6,9 +6,9 @@ import type { PoolSize, Schedule } from "./types";
 
 const PRICES: Record<Schedule, Record<PoolSize, number>> = {
   biweekly: {
-    "10k-20k": 119,
-    "20k-30k": 129,
-    "30k+": 139,
+    "10k-20k": 129,
+    "20k-30k": 139,
+    "30k+": 149,
   },
   weekly: {
     "10k-20k": 179,

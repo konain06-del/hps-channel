@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data/site";
 
 export const metadata: Metadata = {
-  title: "Pool Service Plans & Pricing — From $120/mo",
+  title: "Pool Service Plans & Pricing — From $129/mo",
   description:
-    "Pool service plans in Frisco, TX: Bi-weekly $120/mo, Weekly $179/mo, Premium Care $229/mo. All chemicals included, no contracts. Free first 2 weeks for new customers. Call (214) 233-6803.",
+    "Pool service plans in Frisco, TX: Bi-weekly $129/mo, Weekly $179/mo, Premium Care $229/mo. All chemicals included, no contracts. Free first 2 weeks for new customers. Call (214) 233-6803.",
   alternates: {
     canonical: `${siteConfig.url}/plans`,
   },
@@ -38,11 +38,11 @@ const pricingJsonLd = {
         name: "Bi-weekly Pool Service",
         description:
           "Essential pool care every two weeks including pool cleaning, chemical testing, surface skimming, equipment inspection, and digital visit reports.",
-        price: "120",
+        price: "129",
         priceCurrency: "USD",
         priceSpecification: {
           "@type": "UnitPriceSpecification",
-          price: "120",
+          price: "129",
           priceCurrency: "USD",
           unitText: "MONTH",
         },

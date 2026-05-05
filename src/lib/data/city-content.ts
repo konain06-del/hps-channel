@@ -34,7 +34,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Frisco, TX | Weekly Cleaning & Maintenance | Hydra Pool Services",
     metaDescription:
-      "Professional pool service in Frisco, TX. Weekly cleaning, chemical balancing, and equipment maintenance starting at $120/mo. Free first 2 weeks. Call (214) 233-6803.",
+      "Professional pool service in Frisco, TX. Weekly cleaning, chemical balancing, and equipment maintenance starting at $129/mo. Free first 2 weeks. Call (214) 233-6803.",
     headline: "Pool Service in Frisco, TX",
     intro:
       "Frisco is our home base. As a locally owned pool service company headquartered right here in Frisco, we understand the unique needs of North Texas pools — from the intense summer heat that drives up chlorine demand to the occasional hailstorms that leave debris in your water. Our certified technicians serve neighborhoods across Frisco with weekly pool cleaning, water chemistry management, and equipment inspections that keep your pool swim-ready year-round.",
@@ -63,7 +63,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Frisco, TX?",
         answer:
-          "Pool service in Frisco starts at $120/month for bi-weekly cleaning and goes up to $229/month for Premium Care with priority scheduling and equipment support. All chemicals are included in every plan.",
+          "Pool service in Frisco starts at $129/month for bi-weekly cleaning and goes up to $229/month for Premium Care with priority scheduling and equipment support. All chemicals are included in every plan.",
       },
       {
         question: "Do you offer pool service near Phillips Creek Ranch?",
@@ -89,7 +89,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Plano, TX | Weekly Pool Cleaning | Hydra Pool Services",
     metaDescription:
-      "Trusted pool service in Plano, TX. Weekly cleaning, water chemistry, and equipment inspections starting at $120/mo. Serving West Plano, Willow Bend & Legacy. Call (214) 233-6803.",
+      "Trusted pool service in Plano, TX. Weekly cleaning, water chemistry, and equipment inspections starting at $129/mo. Serving West Plano, Willow Bend & Legacy. Call (214) 233-6803.",
     headline: "Pool Service in Plano, TX",
     intro:
       "Plano homeowners deserve a pool that is always ready for a swim. Hydra Pool Services provides professional weekly pool cleaning and maintenance across West Plano, the Legacy corridor, and surrounding communities. With hot Texas summers pushing pool chemistry to its limits, our technicians ensure your water stays balanced, your equipment runs efficiently, and your pool surfaces stay clean week after week.",
@@ -116,7 +116,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Plano, TX?",
         answer:
-          "Pool service in Plano starts at $120/month for bi-weekly service and $179/month for weekly cleaning. Our Premium Care plan at $229/month includes priority scheduling and equipment repair support. All chemicals are included.",
+          "Pool service in Plano starts at $129/month for bi-weekly service and $179/month for weekly cleaning. Our Premium Care plan at $229/month includes priority scheduling and equipment repair support. All chemicals are included.",
       },
       {
         question: "Do you service pools in West Plano?",
@@ -142,7 +142,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in McKinney, TX | Pool Cleaning & Maintenance | Hydra Pool Services",
     metaDescription:
-      "Professional pool service in McKinney, TX. Serving Stonebridge Ranch, Craig Ranch & more. Weekly cleaning starting at $120/mo. Call (214) 233-6803 for a free quote.",
+      "Professional pool service in McKinney, TX. Serving Stonebridge Ranch, Craig Ranch & more. Weekly cleaning starting at $129/mo. Call (214) 233-6803 for a free quote.",
     headline: "Pool Service in McKinney, TX",
     intro:
       "McKinney is one of the fastest-growing cities in Texas, and with new homes come new pools that need expert care. Hydra Pool Services brings professional pool maintenance to McKinney's master-planned communities including Stonebridge Ranch, Craig Ranch, and beyond. Whether you have a new build or an established pool, our weekly service keeps your water safe, clean, and crystal clear.",
@@ -168,7 +168,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool cleaning cost in McKinney, TX?",
         answer:
-          "Pool cleaning in McKinney starts at $120/month for bi-weekly service. Weekly service is $179/month and Premium Care with equipment support is $229/month. All chemicals are included in every plan.",
+          "Pool cleaning in McKinney starts at $129/month for bi-weekly service. Weekly service is $179/month and Premium Care with equipment support is $229/month. All chemicals are included in every plan.",
       },
       {
         question:
@@ -195,7 +195,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Prosper, TX | Pool Cleaning & Care | Hydra Pool Services",
     metaDescription:
-      "Professional pool service in Prosper, TX. Serving Windsong Ranch, Star Trail & surrounding communities. Weekly cleaning from $120/mo. Call (214) 233-6803.",
+      "Professional pool service in Prosper, TX. Serving Windsong Ranch, Star Trail & surrounding communities. Weekly cleaning from $129/mo. Call (214) 233-6803.",
     headline: "Pool Service in Prosper, TX",
     intro:
       "Prosper's master-planned communities feature some of the most beautiful residential pools in North Texas. Hydra Pool Services provides premium pool cleaning and maintenance to Prosper homeowners who want their backyard oasis to stay in perfect condition. From Windsong Ranch to Star Trail, our weekly service ensures your pool water is balanced, your surfaces are clean, and your equipment runs at peak performance.",
@@ -220,7 +220,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Prosper, TX?",
         answer:
-          "Pool service in Prosper starts at $120/month for bi-weekly cleaning and $179/month for weekly service. Our Premium Care plan at $229/month includes equipment support and priority scheduling.",
+          "Pool service in Prosper starts at $129/month for bi-weekly cleaning and $179/month for weekly service. Our Premium Care plan at $229/month includes equipment support and priority scheduling.",
       },
       {
         question: "Do you serve Windsong Ranch in Prosper?",
@@ -246,7 +246,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Little Elm, TX | Pool Maintenance | Hydra Pool Services",
     metaDescription:
-      "Reliable pool service in Little Elm, TX. Weekly cleaning, chemical balancing & equipment care starting at $120/mo. Serving lakeside communities. Call (214) 233-6803.",
+      "Reliable pool service in Little Elm, TX. Weekly cleaning, chemical balancing & equipment care starting at $129/mo. Serving lakeside communities. Call (214) 233-6803.",
     headline: "Pool Service in Little Elm, TX",
     intro:
       "Little Elm's lakeside communities feature pools that face unique challenges — from increased debris due to proximity to Lake Lewisville to the higher humidity that affects water chemistry. Hydra Pool Services understands these local conditions and provides tailored weekly pool maintenance that keeps Little Elm pools clean, balanced, and safe for your family.",
@@ -271,7 +271,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Little Elm, TX?",
         answer:
-          "Pool service in Little Elm starts at $120/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care is $229/month. All chemicals are included.",
+          "Pool service in Little Elm starts at $129/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care is $229/month. All chemicals are included.",
       },
       {
         question: "Do lakeside pools need more maintenance?",
@@ -297,7 +297,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in The Colony, TX | Pool Cleaning | Hydra Pool Services",
     metaDescription:
-      "Professional pool service in The Colony, TX near Lake Lewisville. Weekly cleaning & chemical balancing starting at $120/mo. Call (214) 233-6803 for a free quote.",
+      "Professional pool service in The Colony, TX near Lake Lewisville. Weekly cleaning & chemical balancing starting at $129/mo. Call (214) 233-6803 for a free quote.",
     headline: "Pool Service in The Colony, TX",
     intro:
       "The Colony sits along the shores of Lake Lewisville, and the area's pools benefit from — and are challenged by — the local climate and environment. Hydra Pool Services provides consistent, reliable pool maintenance to The Colony homeowners, handling everything from weekly cleaning and chemical balancing to equipment inspections and repairs. Our goal is simple: keep your pool crystal clear so you can enjoy it without the hassle.",
@@ -321,7 +321,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool cleaning cost in The Colony, TX?",
         answer:
-          "Pool cleaning in The Colony starts at $120/month for bi-weekly service. Weekly cleaning is $179/month and Premium Care with equipment support is $229/month. All chemicals are included.",
+          "Pool cleaning in The Colony starts at $129/month for bi-weekly service. Weekly cleaning is $179/month and Premium Care with equipment support is $229/month. All chemicals are included.",
       },
       {
         question: "Do you service HOA pools in The Colony?",
@@ -347,7 +347,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Allen, TX | Pool Maintenance & Cleaning | Hydra Pool Services",
     metaDescription:
-      "Trusted pool service in Allen, TX. Serving Twin Creeks, Montgomery Farm & more. Weekly cleaning from $120/mo. All chemicals included. Call (214) 233-6803.",
+      "Trusted pool service in Allen, TX. Serving Twin Creeks, Montgomery Farm & more. Weekly cleaning from $129/mo. All chemicals included. Call (214) 233-6803.",
     headline: "Pool Service in Allen, TX",
     intro:
       "Allen is home to established neighborhoods with beautiful pools that deserve expert care. Hydra Pool Services provides weekly pool cleaning and maintenance to Allen homeowners, from Twin Creeks to Montgomery Farm and beyond. Our technicians keep your water chemistry balanced, your pool surfaces clean, and your equipment running smoothly — so your pool is always ready for family and friends.",
@@ -372,7 +372,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Allen, TX?",
         answer:
-          "Pool service in Allen starts at $120/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care with equipment support is $229/month. All chemicals are included in every plan.",
+          "Pool service in Allen starts at $129/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care with equipment support is $229/month. All chemicals are included in every plan.",
       },
       {
         question: "Do you serve Twin Creeks and Montgomery Farm?",
@@ -398,7 +398,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Celina, TX | Pool Cleaning & Maintenance | Hydra Pool Services",
     metaDescription:
-      "Professional pool service in Celina, TX. Serving Light Farms & growing communities. Weekly pool cleaning from $120/mo. Call (214) 233-6803 for a free quote.",
+      "Professional pool service in Celina, TX. Serving Light Farms & growing communities. Weekly pool cleaning from $129/mo. Call (214) 233-6803 for a free quote.",
     headline: "Pool Service in Celina, TX",
     intro:
       "Celina is one of the fastest-growing cities in North Texas, with new neighborhoods and pools being built at a rapid pace. Hydra Pool Services brings professional weekly pool maintenance to Celina homeowners, from Light Farms to the newest developments. Whether your pool is brand new or a few years old, our team ensures it stays clean, safe, and perfectly balanced.",
@@ -423,7 +423,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Celina, TX?",
         answer:
-          "Pool service in Celina starts at $120/month for bi-weekly service and $179/month for weekly cleaning. Premium Care with equipment support is $229/month. All chemicals are included.",
+          "Pool service in Celina starts at $129/month for bi-weekly service and $179/month for weekly cleaning. Premium Care with equipment support is $229/month. All chemicals are included.",
       },
       {
         question: "Do you service Light Farms in Celina?",
@@ -449,7 +449,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Murphy, TX | Pool Cleaning & Care | Hydra Pool Services",
     metaDescription:
-      "Reliable pool service in Murphy, TX. Weekly pool cleaning, chemical balancing & equipment inspections starting at $120/mo. Call (214) 233-6803 for a free quote.",
+      "Reliable pool service in Murphy, TX. Weekly pool cleaning, chemical balancing & equipment inspections starting at $129/mo. Call (214) 233-6803 for a free quote.",
     headline: "Pool Service in Murphy, TX",
     intro:
       "Murphy may be one of the smaller cities in Collin County, but its pools deserve the same professional care as any neighborhood in DFW. Hydra Pool Services provides reliable weekly pool maintenance to Murphy homeowners, keeping your water crystal clear, your chemicals perfectly balanced, and your equipment in top condition. We treat every pool like our own.",
@@ -473,7 +473,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Murphy, TX?",
         answer:
-          "Pool service in Murphy starts at $120/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care with equipment support is $229/month. All chemicals are included in every plan.",
+          "Pool service in Murphy starts at $129/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care with equipment support is $229/month. All chemicals are included in every plan.",
       },
       {
         question: "How often should I have my pool cleaned in Murphy?",
@@ -499,7 +499,7 @@ export const cityContent: Record<string, CityContent> = {
     metaTitle:
       "Pool Service in Richardson, TX | Pool Maintenance | Hydra Pool Services",
     metaDescription:
-      "Professional pool service in Richardson, TX. Serving Canyon Creek & North Richardson. Weekly cleaning from $120/mo. All chemicals included. Call (214) 233-6803.",
+      "Professional pool service in Richardson, TX. Serving Canyon Creek & North Richardson. Weekly cleaning from $129/mo. All chemicals included. Call (214) 233-6803.",
     headline: "Pool Service in Richardson, TX",
     intro:
       "Richardson has some of the most established neighborhoods in the DFW area, and many homes feature pools that have been enjoyed for years. Hydra Pool Services provides expert weekly pool maintenance to North Richardson homeowners, handling everything from chemical balancing to equipment care. Whether your pool is decades old or newly renovated, we keep it running at its best.",
@@ -524,7 +524,7 @@ export const cityContent: Record<string, CityContent> = {
       {
         question: "How much does pool service cost in Richardson, TX?",
         answer:
-          "Pool service in Richardson starts at $120/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care is $229/month. All chemicals are included in every plan.",
+          "Pool service in Richardson starts at $129/month for bi-weekly cleaning. Weekly service is $179/month and Premium Care is $229/month. All chemicals are included in every plan.",
       },
       {
         question: "Do you service older pools in Richardson?",

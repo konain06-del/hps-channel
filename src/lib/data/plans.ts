@@ -26,7 +26,7 @@ export const plans: Plan[] = [
     id: "biweekly",
     name: "Bi-weekly",
     subtitle: "Essential pool care every two weeks",
-    price: 120,
+    price: 129,
     priceLabel: "starting at",
     featured: false,
     features: [

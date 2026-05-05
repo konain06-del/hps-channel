@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/data/site";
 export const metadata: Metadata = {
   title: "Pool Services in Frisco, TX & North DFW",
   description:
-    "Pool cleaning, maintenance, repairs, bead blasting & more in Frisco, TX. Residential & commercial pool care from $120/mo. All chemicals included. Free first 2 weeks. Call (214) 233-6803.",
+    "Pool cleaning, maintenance, repairs, bead blasting & more in Frisco, TX. Residential & commercial pool care from $129/mo. All chemicals included. Free first 2 weeks. Call (214) 233-6803.",
   alternates: {
     canonical: `${siteConfig.url}/services`,
   },

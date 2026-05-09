@@ -1,0 +1,192 @@
+:root {
+  /* Hydra brand palette — matches src/app/globals.css */
+  --hydra-50: #E8F7FD;
+  --hydra-100: #C8ECFA;
+  --hydra-200: #93D9F5;
+  --hydra-500: #27B6E6;
+  --hydra-600: #1E9AC4;
+  --hydra-700: #167DA2;
+  --navy: #0B1B2B;
+  --slate: #445266;
+  --slate-light: #6B7B94;
+  --surface: #F7FBFF;
+  --border: #D7EAF6;
+  --border-light: #E8F2FA;
+}
+
+.thank-you {
+  min-height: 100svh;
+  display: flex;
+  align-items: safe center;
+  justify-content: center;
+  padding: 32px 20px;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, var(--hydra-50), transparent 70%),
+    var(--surface);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--slate);
+  box-sizing: border-box;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 56px 48px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 1px 3px rgba(11, 27, 43, 0.04),
+    0 20px 40px -12px rgba(39, 182, 230, 0.15);
+  box-sizing: border-box;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto 40px;
+}
+
+.badge {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--hydra-50);
+  color: var(--hydra-500);
+  box-shadow: 0 0 0 6px rgba(39, 182, 230, 0.08);
+}
+
+.badge svg {
+  width: 36px;
+  height: 36px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hydra-600);
+  margin: 0 0 14px;
+}
+
+.thank-you h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1.6px;
+  margin: 0 0 20px;
+  color: var(--navy);
+}
+
+.lede {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--slate);
+  margin: 0 auto 36px;
+  max-width: 460px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--hydra-500);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow:
+    0 10px 20px -6px rgba(39, 182, 230, 0.35),
+    0 4px 8px -2px rgba(39, 182, 230, 0.2);
+}
+
+.cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--hydra-600);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 28px -6px rgba(39, 182, 230, 0.4),
+    0 6px 12px -2px rgba(39, 182, 230, 0.25);
+}
+
+.cta:hover svg {
+  transform: translateX(3px);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--hydra-500);
+  outline-offset: 3px;
+}
+
+.footnote {
+  margin: 32px 0 0;
+  font-size: 14px;
+  color: var(--slate-light);
+}
+
+.footnote a {
+  color: var(--hydra-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footnote a:hover {
+  color: var(--hydra-700);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 40px 24px;
+    border-radius: 20px;
+  }
+
+  .logo {
+    max-width: 260px;
+    margin-bottom: 28px;
+  }
+
+  .badge {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 22px;
+  }
+
+  .badge svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .thank-you h1 {
+    font-size: 38px;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .lede {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .cta {
+    padding: 13px 24px;
+    width: 100%;
+    justify-content: center;
+  }
+}
